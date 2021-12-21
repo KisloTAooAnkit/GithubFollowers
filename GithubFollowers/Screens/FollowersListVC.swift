@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+
+
 class FollowersListVC: UIViewController {
 
     
@@ -21,6 +24,7 @@ class FollowersListVC: UIViewController {
     
     var lastPageTillDataFetched = 1
     var hasMoreFollowers = false
+    var isSearching = false
     
     var collectionView : UICollectionView!
     var dataSource : UICollectionViewDiffableDataSource<Section,Follower>!
@@ -35,6 +39,7 @@ class FollowersListVC: UIViewController {
         configureDataSource()
         configureSearchController()
         collectionView.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,14 +138,29 @@ extension FollowersListVC : UICollectionViewDelegate {
             getFollowers()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
+        
+        let destVC = UserInfoVC()
+        
+        destVC.delegate = self
+        
+        destVC.username = follower.login
+        
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true, completion: nil)
+        
+    }
 }
 
 extension FollowersListVC : UISearchResultsUpdating , UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
+        
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
             return
         }
-        
+        isSearching = true
         self.filteredFollowers = followers.filter({ follower in
             return follower.login.lowercased().contains(filter.lowercased())
         })
@@ -150,7 +170,24 @@ extension FollowersListVC : UISearchResultsUpdating , UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.isSearching = false
         updateData(on: self.followers)
+        
     }
+    
+}
+
+extension FollowersListVC : FollowerListVCDelegate {
+    func didRequestFollowers(for username: String) {
+        //getFollowers
+        self.username = username
+        title = username
+        lastPageTillDataFetched = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        collectionView.setContentOffset(.zero, animated: true)
+        getFollowers()
+    }
+    
     
 }

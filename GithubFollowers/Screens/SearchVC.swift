@@ -27,6 +27,7 @@ class SearchVC: UIViewController {
         configureTextField()
         configureCallToActionButton()
         createDismissKeyBoardTapGesture()
+        //usernameTextField.text = "sallen0400"
         
     }
     
