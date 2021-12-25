@@ -12,8 +12,13 @@ protocol FollowerListVCDelegate : AnyObject {
 }
 
 class UserInfoVC: UIViewController {
-
+    
+    
+    var follower : Follower!
     var username : String!
+    
+    private var starFilled = UIImage(systemName: "star.fill")
+    private var starEmpty = UIImage(systemName: "star")
     
     weak var delegate : FollowerListVCDelegate!
     
@@ -33,10 +38,15 @@ class UserInfoVC: UIViewController {
     }
     
     
+    
+    
     func configureVC(){
+        
+        let addToFollowersButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .done, target: self, action: nil)
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
+        navigationItem.leftBarButtonItem = addToFollowersButton
     }
     
     
