@@ -37,12 +37,20 @@ class UserInfoVC: UIViewController {
         
     }
     
+    init(follower : Follower){
+        super.init(nibName: nil, bundle: nil)
+        self.username = follower.login
+        self.follower = follower
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     func configureVC(){
         
-        let addToFollowersButton = UIBarButtonItem(image: UIImage(systemName: "star"), style: .done, target: self, action: nil)
+        let addToFollowersButton = UIBarButtonItem(image: starEmpty, style: .done, target: self, action: nil)
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
@@ -126,6 +134,10 @@ class UserInfoVC: UIViewController {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
+    }
+    
+    @objc func updateFollowerStatus(){
+        
     }
     
     @objc func dismissVC(){
