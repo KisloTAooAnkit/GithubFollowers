@@ -35,6 +35,7 @@ class SearchVC: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: true)
+        usernameTextField.text = nil
      
     }
     

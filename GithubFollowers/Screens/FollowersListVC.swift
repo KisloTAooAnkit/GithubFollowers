@@ -91,7 +91,7 @@ class FollowersListVC: UIViewController {
                 self.hasMoreFollowers = !(followers.count < 100)
                 
                 if self.followers.isEmpty {
-                    let message = "Lmao what an unpopular person do some clout 🖕"
+                    let message = "Unfortunately \(String(describing: self.username!)) seems to be not popular among his friends :("
                     
                     
                     DispatchQueue.main.async {
@@ -211,7 +211,7 @@ extension FollowersListVC : UISearchResultsUpdating , UISearchBarDelegate {
     
 }
 
-extension FollowersListVC : FollowerListVCDelegate {
+extension FollowersListVC : UserInfoVCDelegate {
     func didRequestFollowers(for username: String) {
         //getFollowers
         self.username = username

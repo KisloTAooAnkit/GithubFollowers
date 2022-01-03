@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FollowerListVCDelegate : AnyObject {
+protocol UserInfoVCDelegate : AnyObject {
     func didRequestFollowers(for username : String)
 }
 
@@ -20,7 +20,7 @@ class UserInfoVC: UIViewController {
     private var starFilled = UIImage(systemName: "star.fill")
     private var starEmpty = UIImage(systemName: "star")
     
-    weak var delegate : FollowerListVCDelegate!
+    weak var delegate : UserInfoVCDelegate!
     
     let headerView = UIView()
     let itemViewOne = UIView()
@@ -145,7 +145,7 @@ class UserInfoVC: UIViewController {
     }
 }
 
-extension UserInfoVC : UserInfoVCDelegate {
+extension UserInfoVC : ItemInfoVCDelegate {
     func didTapGithubProfile(for user: User) {
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "Unable to fetch user's profile from github.", buttonTitle: "Ok")

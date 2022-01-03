@@ -13,13 +13,13 @@ class GFTitleLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
     
-    init(textAlignment : NSTextAlignment, fontsize : CGFloat){
-        super.init(frame: .zero)
+    convenience init(textAlignment : NSTextAlignment, fontsize : CGFloat){
+        self.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontsize,weight: .bold)
-        configure()
     }
     
 
