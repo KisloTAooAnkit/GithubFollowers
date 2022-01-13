@@ -13,26 +13,22 @@ list of followers of searched user
 
 
 ## Key Features
-
-- View Github Profile
-![Initial Search](https://user-images.githubusercontent.com/40890260/149338126-7c97a535-ada8-4a72-bc4a-4a55a051a4ff.gif)
-
-
-![Github Prof viewing](https://user-images.githubusercontent.com/40890260/149338017-6a72c284-ebf1-4812-bd15-0f2ea645f865.gif)
-
 - Completely programmatic UI (UIKIT)
 
-- Diffable Data source with automated animations
-https://user-images.githubusercontent.com/40890260/149337857-0fabd6d3-1c84-4e6f-b012-92e1461398ac.mp4
+- View Github Profile
+- ![Initial SearchGif](https://user-images.githubusercontent.com/40890260/149340185-28c29059-8cab-490f-9145-25ad5c8098c3.gif) ![Opening Github ProfileGif](https://user-images.githubusercontent.com/40890260/149340021-443c76bc-8cff-4b1f-8a0c-5fcda237baaf.gif)
 
+- Diffable Data source with automated animations
+- ![Search Bar animationGif](https://user-images.githubusercontent.com/40890260/149340059-54d12057-ed08-4434-a93c-0d67f894426d.gif)
 
 - Data caching and pagination
-![PaginationGif](https://user-images.githubusercontent.com/40890260/149337934-8eaa1142-dddb-4944-9640-abf73ecfbe38.gif)
+- ![PaginationGif](https://user-images.githubusercontent.com/40890260/149340159-c8574060-4fe5-4858-a026-9461396287ef.gif)   
 
-- Persistence
-![Adding Favorites](https://user-images.githubusercontent.com/40890260/149338065-5cf4249a-efbd-4c1b-9c9c-ec18f7b8c70d.gif)
 
-![PersistenceGif](https://user-images.githubusercontent.com/40890260/149337960-e1628f84-8500-495f-a66c-71d86fe59862.gif)
+- Persistence 
+- ![Adding FavoritesGIF](https://user-images.githubusercontent.com/40890260/149340413-29373fb0-06d7-4993-b1ab-aa7d6d770bd9.gif) 
+- ![PersistenceGif](https://user-images.githubusercontent.com/40890260/149340459-441a7192-4124-4b38-b111-6d3041a87f4b.gif) 
+
 
 - Dark mode support 
 
